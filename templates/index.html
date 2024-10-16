@@ -1,0 +1,153 @@
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/V2PFaRBlgHS
+-->
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+          --background: hsl(0, 0%, 100%);
+          --foreground: hsl(222.2, 84%, 4.9%);
+          --card: hsl(0, 0%, 100%);
+          --card-foreground: hsl(222.2, 84%, 4.9%);
+          --popover: hsl(0, 0%, 100%);
+          --popover-foreground: hsl(222.2, 84%, 4.9%);
+          --primary: hsl(221.2, 83.2%, 53.3%);
+          --primary-foreground: hsl(210, 40%, 98%);
+          --secondary: hsl(210, 40%, 96.1%);
+          --secondary-foreground: hsl(222.2, 47.4%, 11.2%);
+          --muted: hsl(210, 40%, 96.1%);
+          --muted-foreground: hsl(215.4, 16.3%, 44%);
+          --accent: hsl(210, 40%, 96.1%);
+          --accent-foreground: hsl(222.2, 47.4%, 11.2%);
+          --destructive: hsl(0, 72%, 51%);
+          --destructive-foreground: hsl(210, 40%, 98%);
+          --border: hsl(214.3, 31.8%, 91.4%);
+          --input: hsl(214.3, 31.8%, 91.4%);
+          --ring: hsl(221.2, 83.2%, 53.3%);
+          --chart-1: hsl(221.2, 83.2%, 53.3%);
+          --chart-2: hsl(216, 92%, 60%);
+          --chart-3: hsl(212, 95%, 68%);
+          --chart-4: hsl(210, 98%, 78%);
+          --chart-5: hsl(212, 97%, 87%);
+          --radius: 0.5rem;
+        }
+
+        img[src="/placeholder.svg"], 
+        img[src="/placeholder-user.jpg"] {
+          filter: sepia(0.3) hue-rotate(-60deg) saturate(0.5) opacity(0.8);
+        }
+
+        /* 예시로 변수를 적용한 스타일 */
+        body {
+          background-color: var(--background);
+          color: var(--foreground);
+        }
+
+        .card {
+          background-color: var(--card);
+          color: var(--card-foreground);
+          border-radius: var(--radius);
+        }
+
+        button.primary {
+          background-color: var(--primary);
+          color: var(--primary-foreground);
+          border-radius: var(--radius);
+        }
+
+        button.secondary {
+          background-color: var(--secondary);
+          color: var(--secondary-foreground);
+          border-radius: var(--radius);
+        }
+    </style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('/static/placeholder.png');
+            background-size: contain; /* 이미지가 화면 전체를 덮지 않고, 비율에 맞게 표시 */
+            background-position: center; /* 이미지를 중앙에 배치 */
+            background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+            padding: 50px; /* 여백 추가 */
+            opacity: 0.2; /* 투명도 조절 */
+            z-index: -1; /* 배경 이미지를 뒤로 보내기 */
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            font-size: 2rem;
+            color: #fff;
+        }
+    </style>
+    <style>
+        h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; --font-sans-serif: 'Inter'; }
+    </style>
+    <style>
+        body { font-family: 'Inter', sans-serif; --font-sans-serif: 'Inter'; }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>선문대 SW융합대 학생회비</title>
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <div class="flex flex-col min-h-screen flex items-center justify-center">
+        <section class="primary text-primary-foreground py-12 md:py-24 lg:py-32">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center space-y-4">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold">
+          선문대 SW융합대 학생회비 납부 확인
+        </h1>
+                    <form id="payment-form" method="post" action="/result" class="max-w-md mx-auto space-y-4">
+                        <input class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                        id="name" placeholder="이름" />
+                        <input inputmode="numeric" pattern="[0-9]*" type="number" name="stnum" required class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                        id="number" placeholder="학번" />
+                        <button id="submit-button" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 primary text-primary-foreground hover:primary/90 h-10 px-4 py-2 w-full"
+                        type="submit">
+                        <svg id="spinner" class="hidden" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"><path fill="currentColor" d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg>
+                            확인
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            const submitButton = document.getElementById('submit-button');
+            const spinner = document.getElementById('spinner');
+
+            // 버튼 비활성화
+            submitButton.disabled = true;
+
+            // 버튼 내 스피너 표시
+            spinner.classList.remove('hidden');
+
+            // 필요 시 추가적인 로직을 여기에 작성할 수 있습니다.
+            // 예: 폼 유효성 검사 등
+        });
+    </script>
+</body>
+
+</html>
