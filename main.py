@@ -13,6 +13,11 @@ templates = Jinja2Templates(directory="templates")
 # 정적 파일 제공 설정
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+print("DATABASE_HOST:", os.getenv('DATABASE_HOST'))
+print("DATABASE_USER:", os.getenv('DATABASE_USER'))
+print("DATABASE_PASSWORD:", os.getenv('DATABASE_PASSWORD'))
+print("DATABASE_NAME:", os.getenv('DATABASE_NAME'))
+
 # 데이터베이스 연결 설정
 DATABASE_CONFIG = {
     'host': os.getenv('DATABASE_HOST'),
