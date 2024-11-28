@@ -16,7 +16,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 데이터베이스 연결 설정
 DATABASE_CONFIG = {
     'host': os.getenv('DATABASE_HOST'),
-    'port': int(os.getenv('DATABASE_PORT')),
+    'port': 46506,
     'user': os.getenv('DATABASE_USER'),
     'password': os.getenv('DATABASE_PASSWORD'),
     'db': os.getenv('DATABASE_NAME')
